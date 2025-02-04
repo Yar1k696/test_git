@@ -1,3 +1,5 @@
+from itertools import count
+
 
 # def geometric_progression(a_1, b , max_terms):
 #     quantity = 0
@@ -48,18 +50,90 @@
 #
 # except Exception as x:
 #     print(x)
-#
-#                       3
-#
-#
-def alternative_range(start, stop=None, step=1):
-    if stop is None:
-        stop = start
-    start = 0
-    current = start
-    while current < stop:
-        yield current
-        current += step
 
-for num in alternative_range(1, 30, 2):
+
+
+                   #5
+
+# from datetime import datetime, timedelta
+#
+# def date_generator(start_date, end_date, step_days):
+#     current_date = start_date
+#     while current_date <= end_date:
+#         yield current_date
+#         current_date += timedelta(days=step_days)
+#
+## задаємо початкову і кінцеву дату
+# start_date = datetime(2025, 2, 3)
+# end_date = datetime(2025, 2, 25)
+# step_days = 2  #крок між днями
+#
+# for date in date_generator(start_date, end_date, step_days):
+#     print(date.strftime('%Y-%m-%d'))
+
+                           #5(1)
+
+# from datetime import datetime
+# from dateutil.relativedelta import relativedelta #в командній строкі загрузить "pip install python-dateutil"
+#
+# def date_generator(start_date, end_date, step_months):
+#     current_date = start_date
+#     while current_date <= end_date:
+#         yield current_date
+#         current_date += relativedelta(months=step_months)
+#
+# # задаємо початкову і кінцеву дату
+# start_date = datetime(2025, 2, 3)
+# end_date = datetime(2025, 12, 25)
+# step_months = 2 # крок між місяцями
+#
+# for date in date_generator(start_date, end_date, step_months):
+#     print(date.strftime('%Y-%m-%d'))
+
+#------------------------------------------------------------------------
+
+
+
+                           # 1
+
+def my_decorator(func):
+    def wrapper(value):
+        print(f'Поточне значення: {value}')
+        return func(value)
+    return wrapper
+
+@my_decorator
+def user_function(x):
+    return x + 2
+
+
+def sequence_generator(user_function, start_value, n, stop_value):
+    value = start_value
+    count = 0
+
+    while count < n:
+        yield value
+        value = user_function(value)
+        count += 1
+        if value > stop_value:
+            break
+
+def user_function(x):
+    return x + 2
+
+gen = sequence_generator(user_function, start_value=0, n=9, stop_value=18)
+
+for num in gen:
     print(num)
+
+                              #3
+
+
+def function_sum(numbers, user_function):
+    trans_numbers = [user_function(num) for num in numbers]
+    return trans_numbers
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+user_function = lambda x: x ** 2
+res = function_sum(numbers, user_function)
+print(res)
