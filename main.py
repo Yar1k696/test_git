@@ -1,139 +1,72 @@
-from itertools import count
-
-
-# def geometric_progression(a_1, b , max_terms):
-#     quantity = 0
-#     raise
-#     while quantity < max_terms:
-#         yield a_1
-#         a_1 *= b
-#         quantity += 1
+#                          # Task 3
 #
-# a_1 = 3
-# b = 5
-# max_terms = 7 # килькисть геометричної прогресії
+# def handle_exceptions(func):
+#     def wrapper(*args, **kwargs):
+#         try:
+#             return func(*args, **kwargs)
+#         except Exception as e:
+#             print(f'An error occurred {e}')
+#             return None
+#     return wrapper
 #
-# res = geometric_progression(a_1, b , max_terms)
-# for terms in res:
-#     print(terms)
+# @handle_exceptions
+# def divide(a, b):
+#     return a / b
 #
-#                  1(2)
+# result = divide(5, 0)
+# print(result)
 #
-# def geometric_progression(a_1, b , max_terms):
-#     if not isinstance(a_1, (int | float)):
-#         raise TypeError('a_1 повіно буди цілим числом або с плавающой комой')
-#     if not isinstance(b, (int | float)):
-#         raise TypeError('b повіно буди цілим числом або с плавающой комой')
-#     if not isinstance(max_terms, int):
-#         raise TypeError ('max_terms повинно бути чілим числом')
-#     if max_terms <= 0:
-#         raise ValueError('max_terms повинно буди більше нуля')
 #
-#     quantity = 0
-#     while quantity < max_terms:
-#         yield a_1
-#         a_1 *= b
-#         quantity += 1
+#                         # Task 4
 #
-# a_1 = 3
-# b = 5
-# max_terms = -7 # килькисть геометричної прогресії
+# import time
 #
-# res = geometric_progression(a_1, b , max_terms)
-# for terms in res:
-#     print(terms)
+# def measure_time(func):
+#     def wrapper(*args, **kwargs):
+#         start_time = time.time()
+#         result = func(*args, **kwargs)
+#         end_time = time.time()
+#         execution_time = end_time - start_time
+#         print(f'execution time: {execution_time:.5f} second')
+#         return result
+#     return wrapper
 #
-# try:
-#     res = geometric_progression(a_1, b, max_terms)
-#     for terms in res:
-#         print(terms)
 #
-# except Exception as x:
-#     print(x)
-
-
-
-                   #5
-
-# from datetime import datetime, timedelta
 #
-# def date_generator(start_date, end_date, step_days):
-#     current_date = start_date
-#     while current_date <= end_date:
-#         yield current_date
-#         current_date += timedelta(days=step_days)
+# @measure_time
+# def some_function():
+#     time.sleep(2)
 #
-## задаємо початкову і кінцеву дату
-# start_date = datetime(2025, 2, 3)
-# end_date = datetime(2025, 2, 25)
-# step_days = 2  #крок між днями
+# some_function()
 #
-# for date in date_generator(start_date, end_date, step_days):
-#     print(date.strftime('%Y-%m-%d'))
-
-                           #5(1)
-
-# from datetime import datetime
-# from dateutil.relativedelta import relativedelta #в командній строкі загрузить "pip install python-dateutil"
+#                      # Task 5
 #
-# def date_generator(start_date, end_date, step_months):
-#     current_date = start_date
-#     while current_date <= end_date:
-#         yield current_date
-#         current_date += relativedelta(months=step_months)
+# def log_arguments_results(func):
+#     def wrapper(*args, **kwargs):
+#         print(f'arguments: {args}, {kwargs}')
+#         res = func(*args, **kwargs)
+#         print(f'result: {res}')
+#         return res
+#     return wrapper
 #
-# # задаємо початкову і кінцеву дату
-# start_date = datetime(2025, 2, 3)
-# end_date = datetime(2025, 12, 25)
-# step_months = 2 # крок між місяцями
+# @log_arguments_results
+# def add_numbers(a, b):
+#     return a + b
 #
-# for date in date_generator(start_date, end_date, step_months):
-#     print(date.strftime('%Y-%m-%d'))
-
-#------------------------------------------------------------------------
-
-
-
-                           # 1
-
-def my_decorator(func):
-    def wrapper(value):
-        print(f'Поточне значення: {value}')
-        return func(value)
-    return wrapper
-
-@my_decorator
-def user_function(x):
-    return x + 2
+# add_numbers(3, 4)
+#
+# def before_and_after(func):
+#     def wrapper(*args, **kwargs):
+#         print('executing before the function')
+#         result = func(*args, **kwargs)
+#         print('executing after the function')
+#         return result
+#     return wrapper
+#
+# @before_and_after
+# def some_funs():
+#     print('function call')
+#
+# some_funs()
 
 
-def sequence_generator(user_function, start_value, n, stop_value):
-    value = start_value
-    count = 0
-
-    while count < n:
-        yield value
-        value = user_function(value)
-        count += 1
-        if value > stop_value:
-            break
-
-def user_function(x):
-    return x + 2
-
-gen = sequence_generator(user_function, start_value=0, n=9, stop_value=18)
-
-for num in gen:
-    print(num)
-
-                              #3
-
-
-def function_sum(numbers, user_function):
-    trans_numbers = [user_function(num) for num in numbers]
-    return trans_numbers
-
-numbers = [1, 2, 3, 4, 5, 6, 7, 8]
-user_function = lambda x: x ** 2
-res = function_sum(numbers, user_function)
-print(res)
