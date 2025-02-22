@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/GIT_Python_Project.iml" filepath="$PROJECT_DIR$/.idea/GIT_Python_Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PythonProject1/.idea/GIt_TG.iml" filepath="$PROJECT_DIR$/../PythonProject1/.idea/GIt_TG.iml" />
       <module fileurl="file://$PROJECT_DIR$/../PythonProject1_tg/.idea/PythonProject1_tg.iml" filepath="$PROJECT_DIR$/../PythonProject1_tg/.idea/PythonProject1_tg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Python_Git_tg/.idea/Python_Git_tg.iml" filepath="$PROJECT_DIR$/../Python_Git_tg/.idea/Python_Git_tg.iml" />
     </modules>
   </component>
 </project>

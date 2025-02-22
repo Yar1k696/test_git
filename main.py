@@ -1,72 +1,69 @@
-#                          # Task 3
-#
-# def handle_exceptions(func):
-#     def wrapper(*args, **kwargs):
-#         try:
-#             return func(*args, **kwargs)
-#         except Exception as e:
-#             print(f'An error occurred {e}')
-#             return None
-#     return wrapper
-#
-# @handle_exceptions
-# def divide(a, b):
-#     return a / b
-#
-# result = divide(5, 0)
-# print(result)
-#
-#
-#                         # Task 4
-#
-# import time
-#
-# def measure_time(func):
-#     def wrapper(*args, **kwargs):
-#         start_time = time.time()
-#         result = func(*args, **kwargs)
-#         end_time = time.time()
-#         execution_time = end_time - start_time
-#         print(f'execution time: {execution_time:.5f} second')
-#         return result
-#     return wrapper
-#
-#
-#
-# @measure_time
-# def some_function():
-#     time.sleep(2)
-#
-# some_function()
-#
-#                      # Task 5
-#
-# def log_arguments_results(func):
-#     def wrapper(*args, **kwargs):
-#         print(f'arguments: {args}, {kwargs}')
-#         res = func(*args, **kwargs)
-#         print(f'result: {res}')
-#         return res
-#     return wrapper
-#
-# @log_arguments_results
-# def add_numbers(a, b):
-#     return a + b
-#
-# add_numbers(3, 4)
-#
-# def before_and_after(func):
-#     def wrapper(*args, **kwargs):
-#         print('executing before the function')
-#         result = func(*args, **kwargs)
-#         print('executing after the function')
-#         return result
-#     return wrapper
-#
-# @before_and_after
-# def some_funs():
-#     print('function call')
-#
-# some_funs()
 
+                                                #1
+
+
+# import re
+#
+# def fragment_of_letter(text):
+#     pattern = r'[Rr][Bb]+'
+#
+#     letter = re.findall(pattern, text)
+#     return letter
+# text = input('ввести текст:>> ')
+# res = fragment_of_letter(text)
+# print(res)
+
+
+                                                  # 2
+
+# import re
+#
+# def card_verification(card):
+#
+#     pattern = r'^(?:\d{4}[-]){3}\d{4}$'
+#
+#
+#
+#     if re.match(pattern, card):
+#         return 'Валідний номер картки'
+#     else:
+#         return 'Невірний номер'
+# card = input('введить номер картки:>> ')
+# res = card_verification(card)
+# print(res)
+
+
+                                                    # 3
+
+# import re
+#
+# def email_gverification(email):
+#
+#     pattern = r'^[a-zA-Z0-9][a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+#
+#     if re.match(pattern, email):
+#         return 'Вітиємо, введенно вірно'
+#     else:
+#         return 'невірне введення('
+#
+# email = input('ввести електронну почту:>> ')
+#
+# res = email_gverification(email)
+# print(res)
+
+
+                                                 # 4
+
+# def login_verification(login):
+#
+#     pattern = r'[A-Z][a-z]*\d{2,10}'
+#
+#     if re.match(pattern, login):
+#         return 'Вітиємо, логін введенно вірно'
+#     else:
+#         return 'Невірний Логін'
+#
+# login = input('Введіть Логін:>>> ')
+# result = login_verification(login)
+# print(result)
 

@@ -7,5 +7,7 @@
     <orderEntry type="jdk" jdkName="Python 3.13 (PythonProject)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="PythonProject1_tg" />
+    <orderEntry type="module" module-name="Python_Git_tg" />
+    <orderEntry type="module" module-name="GIt_TG" />
   </component>
 </module>
